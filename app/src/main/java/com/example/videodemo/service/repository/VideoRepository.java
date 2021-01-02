@@ -30,6 +30,10 @@ public class VideoRepository {
         new InsertAsyncTask(mVideoDao).execute(videos);
     }
 
+    public void update(Video video) {
+        new UpdateAsyncTask(mVideoDao).execute(video);
+    }
+
     private static class InsertAsyncTask extends AsyncTask<List<Video>, Void, Void> {
 
         private IVideoDao mAsyncTaskDao;
@@ -41,6 +45,22 @@ public class VideoRepository {
         @Override
         protected Void doInBackground(List<Video>... lists) {
             mAsyncTaskDao.insertVideos(lists[0]);
+            return null;
+        }
+    }
+
+    private static class UpdateAsyncTask extends AsyncTask<Video, Void, Void> {
+
+        private IVideoDao mAsyncTaskDao;
+
+        UpdateAsyncTask(IVideoDao dao) {
+            mAsyncTaskDao = dao;
+        }
+
+        @Override
+        protected Void doInBackground(Video... videos) {
+            videos[0].setQuantity(videos[0].getQuantity() + 1);
+            mAsyncTaskDao.updateVideo(videos[0]);
             return null;
         }
     }
