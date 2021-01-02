@@ -13,7 +13,7 @@ import java.util.List;
 public interface IVideoDao {
 
     @Insert
-    void insertVideo(Video video);
+    void insertVideos(List<Video> video);
 
     @Query("SELECT * FROM Videos ORDER BY Quantity DESC")
     LiveData<List<Video>> getAllVideos();

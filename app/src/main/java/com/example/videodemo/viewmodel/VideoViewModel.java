@@ -20,14 +20,10 @@ public class VideoViewModel extends AndroidViewModel {
         super(application);
         mRepository = new VideoRepository(application);
         mAllVideos = mRepository.getAllVideos();
-
-        if (mAllVideos == null) {
-           // getVideosFromJson();
-            mAllVideos = mRepository.getAllVideos();
-        }
     }
 
     public LiveData<List<Video>> getAllVideos() { return mAllVideos; }
 
-    public void insert(Video video) { mRepository.insert(video); }
+    public void insert(List<Video> videos) { mRepository.insert(videos); }
+
 }
