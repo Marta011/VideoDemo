@@ -7,6 +7,7 @@ import androidx.lifecycle.LiveData;
 
 import com.example.videodemo.service.model.Video;
 import com.example.videodemo.service.repository.VideoRepository;
+import com.example.videodemo.view.ui.MainActivity;
 
 import java.util.List;
 
@@ -25,5 +26,4 @@ public class VideoViewModel extends AndroidViewModel {
     public LiveData<List<Video>> getAllVideos() { return mAllVideos; }
 
     public void insert(List<Video> videos) { mRepository.insert(videos); }
-
 }

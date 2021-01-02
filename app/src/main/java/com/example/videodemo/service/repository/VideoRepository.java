@@ -14,9 +14,10 @@ public class VideoRepository {
 
     private IVideoDao mVideoDao;
     private LiveData<List<Video>> mAllVideos;
+    private VideoRoomDatabase db;
 
     public VideoRepository(Application application) {
-        VideoRoomDatabase db = VideoRoomDatabase.getDatabase(application);
+        db = VideoRoomDatabase.getDatabase(application);
         mVideoDao = db.videoDao();
         mAllVideos = mVideoDao.getAllVideos();
     }

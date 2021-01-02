@@ -7,12 +7,9 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "Videos")
 public class Video {
 
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @ColumnInfo(name = "Id")
     private int id;
-
-    @ColumnInfo(name = "ExternalId")
-    private int externalId;
 
     @ColumnInfo(name = "Title")
     private String title;
@@ -29,14 +26,6 @@ public class Video {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getExternalId() {
-        return externalId;
-    }
-
-    public void setExternalId(int externalId) {
-        this.externalId = externalId;
     }
 
     public String getTitle() {
