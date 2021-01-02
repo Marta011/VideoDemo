@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.videodemo.R;
 import com.example.videodemo.service.model.Video;
 import com.example.videodemo.view.ui.MainActivity;
+import com.example.videodemo.view.ui.VideoPlayerActivity;
 import com.example.videodemo.viewmodel.VideoViewModel;
 
 import java.util.List;
@@ -21,8 +22,12 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
 
     private final LayoutInflater mInflater;
     private List<Video> mVideos;
+    private Context context;
 
-    public VideoListAdapter(Context context) { mInflater = LayoutInflater.from(context); }
+    public VideoListAdapter(Context context) {
+        this.context = context;
+        mInflater = LayoutInflater.from(context);
+    }
 
     @Override
     public VideoViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -40,6 +45,9 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
                 @Override
                 public void onClick(View view) {
                     updateQuantity(mVideos.get(position));
+                    Intent intent = new Intent(context, VideoPlayerActivity.class);
+                    intent.putExtra("url", mVideos.get(position).getManifest());
+                    context.startActivity(intent);
                 }
             });
         } else {
