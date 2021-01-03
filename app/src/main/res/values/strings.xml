@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">VideoDemo</string>
+    <string name="error_msg">Nie możesz obejrzeć tego filmu!</string>
+    <string name="error_title">Wystąpił błąd!</string>
+    <string name="confirm_dialog">Ok</string>
 </resources>

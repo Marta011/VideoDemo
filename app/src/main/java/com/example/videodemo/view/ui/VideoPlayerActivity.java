@@ -1,7 +1,9 @@
 package com.example.videodemo.view.ui;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -54,17 +56,32 @@ public class VideoPlayerActivity extends AppCompatActivity {
                 switch (error.type) {
                     case ExoPlaybackException.TYPE_SOURCE:
                         Log.e(TAG, "TYPE_SOURCE: " + error.getSourceException().getMessage());
+                        displayErrorDialog();
                         break;
 
                     case ExoPlaybackException.TYPE_RENDERER:
                         Log.e(TAG, "TYPE_RENDERER: " + error.getRendererException().getMessage());
+                        displayErrorDialog();
                         break;
 
                     case ExoPlaybackException.TYPE_UNEXPECTED:
                         Log.e(TAG, "TYPE_UNEXPECTED: " + error.getUnexpectedException().getMessage());
+                        displayErrorDialog();
                         break;
                 }
             }
         });
+    }
+
+    private void displayErrorDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.error_msg)
+                .setTitle(R.string.error_title)
+                .setPositiveButton(R.string.confirm_dialog, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        getApplication().startActivity(new Intent(getApplication(), MainActivity.class));
+                    }
+                });
+        builder.show();
     }
 }
