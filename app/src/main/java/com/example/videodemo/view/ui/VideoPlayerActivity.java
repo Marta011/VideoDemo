@@ -33,8 +33,7 @@ public class VideoPlayerActivity extends AppCompatActivity {
     }
 
     private void getValueFromIntent() {
-        Intent myIntent = getIntent();
-        url = myIntent.getStringExtra("url");
+        url = getIntent().getStringExtra("url");
     }
 
     private void attributeWidgets() {
