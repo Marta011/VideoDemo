@@ -2,7 +2,6 @@ package com.example.videodemo.view.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import com.example.videodemo.R;
 import com.example.videodemo.service.model.Video;
 import com.example.videodemo.view.ui.MainActivity;
 import com.example.videodemo.view.ui.VideoPlayerActivity;
-import com.example.videodemo.viewmodel.VideoViewModel;
 
 import java.util.List;
 
@@ -55,7 +53,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
         }
     }
 
-    public void setVideos(List<Video> videos){
+    public void setVideos(List<Video> videos) {
         mVideos = videos;
         notifyDataSetChanged();
     }
@@ -78,7 +76,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
         }
     }
 
-    private void updateQuantity (Video video) {
+    private void updateQuantity(Video video) {
         MainActivity.mVideoViewModel.update(video);
     }
 }

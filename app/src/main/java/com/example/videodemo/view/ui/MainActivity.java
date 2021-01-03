@@ -1,27 +1,20 @@
 package com.example.videodemo.view.ui;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.MotionEvent;
-
 import com.example.videodemo.R;
-import com.example.videodemo.service.dao.IVideoDao;
 import com.example.videodemo.service.model.Video;
 import com.example.videodemo.service.network.MyRetrofit;
 import com.example.videodemo.view.adapter.VideoListAdapter;
 import com.example.videodemo.viewmodel.VideoViewModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;

@@ -13,6 +13,7 @@ import com.example.videodemo.service.model.Video;
 public abstract class VideoRoomDatabase extends RoomDatabase {
 
     public abstract IVideoDao videoDao();
+
     private static VideoRoomDatabase INSTANCE;
 
     static VideoRoomDatabase getDatabase(final Context context) {
@@ -20,7 +21,7 @@ public abstract class VideoRoomDatabase extends RoomDatabase {
             synchronized (VideoRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            VideoRoomDatabase.class, "word_database")
+                            VideoRoomDatabase.class, "video_database")
                             .fallbackToDestructiveMigration()
                             .build();
                 }
