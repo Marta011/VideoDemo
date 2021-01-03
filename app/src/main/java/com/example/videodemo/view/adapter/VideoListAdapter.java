@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -39,6 +40,7 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
             Video current = mVideos.get(position);
             holder.videoItemView.setText(current.getTitle());
             holder.qtyItemView.setText("x" + current.getQuantity());
+            holder.hotItemView.setVisibility((position == 0) ? View.VISIBLE : View.GONE);
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -68,11 +70,13 @@ public class VideoListAdapter extends RecyclerView.Adapter<VideoListAdapter.Vide
     class VideoViewHolder extends RecyclerView.ViewHolder {
         private final TextView videoItemView;
         private final TextView qtyItemView;
+        private final ImageView hotItemView;
 
         private VideoViewHolder(View itemView) {
             super(itemView);
             videoItemView = itemView.findViewById(R.id.textView_title);
             qtyItemView = itemView.findViewById(R.id.textView_quantity);
+            hotItemView = itemView.findViewById(R.id.imageView_hotVideo);
         }
     }
 
